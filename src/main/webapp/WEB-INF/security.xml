@@ -10,7 +10,6 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <http realm="BookManager"  auto-config="true" use-expressions="true"  >
-        <intercept-url pattern="/index" access="ROLE_USER" />
         <intercept-url pattern="/add" access="ROLE_ADMIN" />
         <intercept-url pattern="/remove" access="ROLE_ADMIN" />
         <intercept-url pattern="/edit" access="ROLE_ADMIN" />

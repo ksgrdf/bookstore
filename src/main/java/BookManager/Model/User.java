@@ -22,6 +22,9 @@ public class User {
     @Column
     private int access;
 
+    @Transient
+    private String passwordConfirm;
+
     public int getId() {
         return id;
     }
@@ -54,5 +57,12 @@ public class User {
         this.access = access;
     }
 
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
 
 }

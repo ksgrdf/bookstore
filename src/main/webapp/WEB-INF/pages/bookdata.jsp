@@ -74,7 +74,7 @@
 
           <div class="col-md-4">
               <h3>${book.bookTitle}</h3>
-              <h3>${book.bookAutor}<h3><br>
+              <h3>${book.bookAutor}</h3><br>
               <p>${book.price/100}${book.price%100}</p>
               <p>${book.bookInfo}</p>
           </div>
