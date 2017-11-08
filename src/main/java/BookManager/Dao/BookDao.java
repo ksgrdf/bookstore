@@ -1,6 +1,7 @@
 package BookManager.Dao;
 
 import BookManager.Model.Book;
+import BookManager.Model.User;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ public interface BookDao {
     Book getBookById(int id);
 
     List<Book> listBooks();
+
+    void addUser(User user, Book book);
 
 
 

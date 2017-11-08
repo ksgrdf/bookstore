@@ -24,17 +24,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="page">Back to all book</a>
+            <a class="navbar-brand" href="/books">Back to all book</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-
                 <li>
-                    <a href="../../login.jsp">Log in</a>
+                    <a href="/cart">Cart</a>
                 </li>
                 <li>
-                    <a href="books.jsp">For Admin</a>
+                    <a href="/login">Log in</a>
+                </li>
+                <li>
+                    <a href="/admin">For Admin</a>
                 </li>
 
             </ul>
@@ -56,7 +58,7 @@
             <small>Subheading</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="../../index.jsp">Home</a>
+            <li><a href="/welcome">Home</a>
             </li>
             <li class="active">Three Column Portfolio</li>
         </ol>
@@ -69,7 +71,7 @@
 
     <div class="row">
         <div class="col-md-8">
-            <img class="img-responsive" src="http://localhost:8080/image/${book.id}" alt="">
+            <img class="img-responsive" src="http://localhost:8080/image/${book.id}" width="150" height="200" alt="">
         </div>
 
           <div class="col-md-4">

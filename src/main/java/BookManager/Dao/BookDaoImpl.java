@@ -2,6 +2,7 @@ package BookManager.Dao;
 
 import BookManager.Model.Book;
 
+import BookManager.Model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -31,9 +32,6 @@ public class BookDaoImpl implements BookDao
         Session session = this.sessionFactory.getCurrentSession();
         session.save(book);
                logger.info("Book successfully added. Book details: " + book);
-        session.getTransaction().commit();
-
-
 
     }
 
@@ -75,7 +73,13 @@ public class BookDaoImpl implements BookDao
         return bookList;
     }
 
+    public void addUser(User user, Book book)
+    {
 
+        Session session = sessionFactory.getCurrentSession();
+        book.addUser(user);
+        session.saveOrUpdate(book);
 
+    }
 
 }

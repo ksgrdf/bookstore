@@ -1,18 +1,23 @@
 package BookManager.Dao;
+import BookManager.Model.Book;
 import BookManager.Model.User;
 
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class UserDaoImpl implements UserDao
 {
     private static final Logger logger = LoggerFactory.getLogger(BookDaoImpl.class);
+
     private SessionFactory sessionFactory;
 
     public UserDaoImpl() {}
@@ -44,7 +49,6 @@ public class UserDaoImpl implements UserDao
         Session session = sessionFactory.getCurrentSession();
         User user = (User)session.load(User.class, new Integer(id));
         logger.info("User successfully loaded. User details: " + user);
-
         return user;
     }
 
@@ -58,5 +62,16 @@ public class UserDaoImpl implements UserDao
         }
 
         return userList;
+
     }
+
+    public void addBook(User user, Book book)
+    {
+        Session session =  sessionFactory.getCurrentSession();
+        user.addOrder(book);
+        session.saveOrUpdate(user);
+
+    }
+
+
 }

@@ -1,5 +1,7 @@
 package BookManager.Controller;
 
+
+
 import BookManager.Service.BookService;
 import BookManager.Model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import java.sql.Blob;
 import java.sql.SQLException;
 
 
+
 @Controller
 public class BookController {
 
@@ -28,15 +31,15 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @RequestMapping(value = "books",method = RequestMethod.GET)
+    @RequestMapping(value = "admin",method = RequestMethod.GET)
     public String listBooks(Model model)
     {
         model.addAttribute("book", new Book());
         model.addAttribute("listBooks", this.bookService.listBooks());
-        return "books";
+        return "admin";
     }
 
-    @RequestMapping(value = "/books/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/add", method = RequestMethod.POST)
     public @ResponseBody String addBook(@ModelAttribute("book") Book book, @RequestParam("file") MultipartFile file, HttpServletRequest request)
     {
 
@@ -46,10 +49,7 @@ public class BookController {
 
                 byte[] fileBytes = file.getBytes();
                 String rootPath = request.getSession().getServletContext().getRealPath("/");
-                System.out.println("Server rootPath: " + rootPath);
-                System.out.println("File original name: " + file.getOriginalFilename());
-                System.out.println("File content type: " + file.getContentType());
-                Blob blob = new SerialBlob(fileBytes);
+                Blob blob = new SerialBlob(fileBytes); //formatting image bytes into Blob
                 book.setBookImg(blob);
                File newFile = new File(rootPath + File.separator + file.getOriginalFilename());
                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(newFile));
@@ -70,20 +70,16 @@ public class BookController {
 
         if(book.getId() == 0) this.bookService.addBook(book);
         else this.bookService.updateBook(book);
-        return "redirect:/books";
+
+        return "admin";
     }
-
-
-
-
-
 
     @RequestMapping("/remove/{id}")
     public String remove(@PathVariable("id") int id)
     {
         this.bookService.removeBook(id);
 
-        return "redirect:/books";
+        return "redirect:/admin";
     }
 
     @RequestMapping("edit/{id}")
@@ -92,7 +88,7 @@ public class BookController {
         model.addAttribute("book", this.bookService.getBookById(id));
         model.addAttribute("listBooks", this.bookService.listBooks());
 
-        return "books";
+        return "admin";
     }
 
     @RequestMapping("bookdata/{id}")
@@ -103,58 +99,58 @@ public class BookController {
         return "bookdata";
     }
 
-    @RequestMapping(value = "page",method = RequestMethod.GET)
-    public String list(Model model, HttpServletResponse response)
+    @RequestMapping(value = "books",method = RequestMethod.GET)
+    public String list(Model model)
     {
 
         model.addAttribute("book", new Book());
         model.addAttribute("listBooks", this.bookService.listBooks());
 
-        return "page";
+        return "books";
     }
 
-    @RequestMapping(value={"image/{id}"}, method={org.springframework.web.bind.annotation.RequestMethod.GET})
-    public void file(@PathVariable("id") int id, Model model, HttpServletResponse response)
+    @RequestMapping(value={"image/{id}"}, method= RequestMethod.GET) //display image
+    public void file(@PathVariable("id") int id, Model model,HttpServletResponse response)
     {
-        model.addAttribute("book", bookService.getBookById(id));
-        Blob img = bookService.getBookById(id).getBookImg();
-        System.out.println(img);
 
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        OutputStream o = null;
-        response.setContentType("image/jpg");
+        model.addAttribute(this.bookService.getBookById(id));
+        if(bookService.getBookById(id).getBookImg() != null) {
+            Blob img = bookService.getBookById(id).getBookImg(); //get image from DB
 
-
-        try
-        {
-            int length = (int) img.length();
-            byte[] buf = new byte[length];
-
-            InputStream is = img.getBinaryStream();
-            try {
-                int dataSize;
-                while ((dataSize = is.read(buf)) != -1) {
-                    response.getOutputStream().write(buf, 0, dataSize);
-                }
-            } finally {
-                if (is != null) {
-                    is.close();
-                }
-            }
-            int dataSize;
             response.setContentType("image/jpg");
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            //formatting image into stream byte
+            try {
+                int length = (int) img.length();
+                byte[] buf = new byte[length];
+
+                InputStream is = img.getBinaryStream();
+                try {
+                    int dataSize;
+                    while ((dataSize = is.read(buf)) != -1) {
+                        response.getOutputStream().write(buf, 0, dataSize);
+                    }
+                } finally {
+                    if (is != null) {
+                        is.close();
+                    }
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     public String index(Model model){
-        return "../../index";
+        return "welcome";
     }
+
+
+
+
 
 }

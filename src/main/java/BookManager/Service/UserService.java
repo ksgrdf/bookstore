@@ -1,7 +1,9 @@
 package BookManager.Service;
 
+import BookManager.Model.Book;
 import BookManager.Model.User;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 public interface UserService {
@@ -15,4 +17,7 @@ public interface UserService {
     List<User> listUser();
 
     User searchUser(String username);
+
+
+    void addBook(Book book);
 }

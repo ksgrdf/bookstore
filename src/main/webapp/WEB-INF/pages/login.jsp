@@ -31,7 +31,7 @@
         <div>
             <input value="Войти" type="submit" class= "btn btn-lg btn-primary btn-block"/>
         </div>
-    <a href="/registration">Зарегистриоваться</a>
+    <a href="/registration">Зарегистрироваться</a>
 </form>
 </body>
 

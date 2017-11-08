@@ -2,7 +2,10 @@ package BookManager.Model;
 
 
 
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -24,6 +27,15 @@ public class User {
 
     @Transient
     private String passwordConfirm;
+
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "books_users",
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "book_id") })
+    private Set<Book> orders = new HashSet<Book>();
+
+
 
     public int getId() {
         return id;
@@ -65,4 +77,16 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
 
+    public Set<Book> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Book> orders) {
+        this.orders = orders;
+    }
+
+    public void addOrder(Book book)
+    {
+        orders.add(book);
+    }
 }

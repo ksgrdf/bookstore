@@ -1,5 +1,6 @@
 package BookManager.Dao;
 
+import BookManager.Model.Book;
 import BookManager.Model.User;
 
 
@@ -15,4 +16,7 @@ public interface UserDao {
     User getUserById(int id);
 
     List<User> listUser();
+
+    void addBook(User user,Book book);
+
 }

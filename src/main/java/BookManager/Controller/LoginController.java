@@ -26,7 +26,7 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(Model model){
-        return "../../login";
+        return "login";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
@@ -46,6 +46,14 @@ public class LoginController {
         }
 
         userService.addUser(userForm);
+
+        //User userInfo = (User) SecurityContextHolder.getContext()
+          //      .getAuthentication().getPrincipal();
+
+
+
+//        System.out.println(userInfo.toString());
+
 
         return "redirect:/index";
     }

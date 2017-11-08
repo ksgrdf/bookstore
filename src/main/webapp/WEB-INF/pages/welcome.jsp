@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>KSG</title>
-    <link rel="stylesheet" href='resources/styles.css' type='text/css'>
+    <link rel="stylesheet" href='../../resources/styles.css' type='text/css'>
    </head>
 <body>
 <!-- Intro Header -->
@@ -15,7 +15,7 @@
                     <h1 class="brand-heading">Grayscale</h1>
                     <p class="intro-text">A free, responsive, one page Bootstrap theme.
                         <br>Created by Start Bootstrap.</p>
-                    <a href="page" class="button" >Start</a>
+                    <a href="books" class="button" >Start</a>
                 </div>
             </div>
         </div>

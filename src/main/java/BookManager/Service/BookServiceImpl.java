@@ -2,6 +2,7 @@ package BookManager.Service;
 
 import BookManager.Dao.BookDao;
 import BookManager.Model.Book;
+import BookManager.Model.User;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -42,4 +43,11 @@ public class BookServiceImpl implements BookService {
     {
         return this.bookDao.listBooks();
     }
+
+    @Transactional
+    public void addUser(User user, Book book)
+    {
+        bookDao.addUser(user,book);
+    }
+
 }

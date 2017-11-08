@@ -19,55 +19,50 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
-
-
 @Service
 public class CustomUserDetailsService
-  implements UserDetailsService
-{
+  implements UserDetailsService {
   private static final Logger logger = LoggerFactory.getLogger(CustomUserDetailsService.class);
-  
+
+
   @Autowired
   @Qualifier("userService")
   private UserService userService;
-  
 
-  public CustomUserDetailsService() {}
-  
+
+  public CustomUserDetailsService() {
+  }
+
   @Transactional
-  public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException
-  {
+  public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException { //check user login
     UserDetails userDetails = null;
     User user = userService.searchUser(s);
-    System.out.println(user+" "+user.getPassword());
-
 
     userDetails = new org.springframework.security.core.userdetails.User(
-                    user.getUsername(),
-                    user.getPassword().toLowerCase(),
-                    true,
-                    true,
-                    true,
-                    true,
-                    getAuthorities(user.getAccess()));
+            user.getUsername(),
+            user.getPassword(),
+            true,
+            true,
+            true,
+            true,
+            getAuthorities(user.getAccess()));
 
-      System.out.println("detail");
     return userDetails;
   }
-  
 
-  private Collection<GrantedAuthority> getAuthorities(Integer access)
-  {
-      System.out.println("get");
+  //access for user
+  private Collection<GrantedAuthority> getAuthorities(Integer access) {
+
     List<GrantedAuthority> authList = new ArrayList(2);
-    
+
     if (access.compareTo(1) == 0) {
-        System.out.println("a");
+
       authList.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-    }
-    else {
+    } else {
       authList.add(new SimpleGrantedAuthority("ROLE_USER"));
     }
     return authList;
   }
 }
+
+

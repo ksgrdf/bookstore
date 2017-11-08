@@ -1,6 +1,7 @@
 package BookManager.Service;
 
 import BookManager.Model.Book;
+import BookManager.Model.User;
 
 import java.util.List;
 
@@ -15,4 +16,7 @@ public interface BookService {
     Book getBookById(int id);
 
     List<Book> listBooks();
+
+    void addUser(User user, Book book);
+
 }

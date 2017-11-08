@@ -16,7 +16,7 @@ body {
 }
 
 .img-portfolio {
-    margin-bottom: 30px;
+    margin-bottom: 70px;
 }
 
 .img-hover:hover {
@@ -84,7 +84,7 @@ footer {
 
 @media(max-width:767px) {
     .img-portfolio {
-        margin-bottom: 15px;
+        margin-bottom: 30px;
     }
 
     header.carousel .carousel {

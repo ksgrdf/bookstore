@@ -1,16 +1,20 @@
 package BookManager.Model;
 
+import org.hibernate.Hibernate;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import javax.persistence.*;
 import javax.swing.*;
+import javax.transaction.Transactional;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.*;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "books")
@@ -39,10 +43,14 @@ public class Book {
 
     public Blob getBookImg()
     {
-
-
         return bookImg;
     }
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "books_users",
+            joinColumns = { @JoinColumn(name = "book_id") },
+            inverseJoinColumns = { @JoinColumn(name = "user_id") })
+    private Set<User> orders = new HashSet<User>();
 
     public void setBookImg(Blob bookImg) {
         this.bookImg = bookImg;
@@ -86,6 +94,22 @@ public class Book {
 
     public void setBookInfo(String bookInfo) {
         this.bookInfo = bookInfo;
+    }
+
+
+    public Set<User> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<User> orders) {
+        this.orders = orders;
+    }
+
+
+    public void addUser(User user)
+    {
+        Hibernate.initialize(orders);
+       orders.add(user);
     }
 
     @Override
