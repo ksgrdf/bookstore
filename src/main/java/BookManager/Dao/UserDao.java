@@ -2,9 +2,8 @@ package BookManager.Dao;
 
 import BookManager.Model.Book;
 import BookManager.Model.User;
-
-
 import java.util.List;
+
 
 
 public interface UserDao {
@@ -18,5 +17,9 @@ public interface UserDao {
     List<User> listUser();
 
     void addBook(User user,Book book);
+
+    List<Book> getBooksOrders();
+
+
 
 }

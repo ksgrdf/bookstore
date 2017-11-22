@@ -80,5 +80,10 @@ public class UserServiceImpl implements UserService
     userDao.addBook(username,book);
   }
 
+  public List<Book> getBooksOrders()
+  {
+    return userDao.getBooksOrders();
+  }
+
 
 }

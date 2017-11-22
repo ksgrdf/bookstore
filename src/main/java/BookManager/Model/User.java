@@ -3,6 +3,8 @@ package BookManager.Model;
 
 
 
+import org.hibernate.Hibernate;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -33,7 +35,7 @@ public class User {
     @JoinTable(name = "books_users",
             joinColumns = { @JoinColumn(name = "user_id") },
             inverseJoinColumns = { @JoinColumn(name = "book_id") })
-    private Set<Book> orders = new HashSet<Book>();
+    private Set<Book> booksOrders = new HashSet<Book>();
 
 
 
@@ -77,16 +79,19 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
 
-    public Set<Book> getOrders() {
-        return orders;
+    public Set<Book> getBooksOrders() {
+        Hibernate.initialize(booksOrders);
+        return booksOrders;
     }
 
-    public void setOrders(Set<Book> orders) {
-        this.orders = orders;
+    public void setBooksOrders(Set<Book> orders) {
+        this.booksOrders = orders;
     }
 
     public void addOrder(Book book)
     {
-        orders.add(book);
+        booksOrders.add(book);
     }
+
+
 }

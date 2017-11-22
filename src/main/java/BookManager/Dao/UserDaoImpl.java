@@ -4,13 +4,12 @@ import BookManager.Model.User;
 
 import java.util.List;
 
+
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -72,6 +71,19 @@ public class UserDaoImpl implements UserDao
         session.saveOrUpdate(user);
 
     }
+
+
+     public List<Book> getBooksOrders()
+    {
+
+        Session session =  sessionFactory.openSession();
+
+        List<Book> listOrders = session.createQuery
+                ("from BookManager.Model.Book b inner join fetch b.usersOrder as u").list();
+
+        return  listOrders;
+    }
+
 
 
 }

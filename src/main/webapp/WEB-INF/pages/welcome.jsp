@@ -3,23 +3,30 @@
 <html>
 <head>
     <title>KSG</title>
-    <link rel="stylesheet" href='../../resources/styles.css' type='text/css'>
+    <link rel="stylesheet" href='../../resources/css/styles.css' type='text/css'>
    </head>
 <body>
 <!-- Intro Header -->
 <header class="masthead">
     <div class="intro-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h1 class="brand-heading">Grayscale</h1>
-                    <p class="intro-text">A free, responsive, one page Bootstrap theme.
-                        <br>Created by Start Bootstrap.</p>
-                    <a href="books" class="button" >Start</a>
-                </div>
-            </div>
-        </div>
+
+        <h1 class="brand-heading">Welcome</h1>
+            <br>
+                <h2> Technology Stack</h2>
+                    <p class="intro-text">
+                        Java
+                        <br>Maven
+                        <br>Hibernate
+                        <br>Spring MVC
+                        <br>Spring Security
+                        <br>MySQL
+                        <br>HTML/CSS
+                        <br>BootStrap
+                    </p>
+                    <a href="books" class="button" >Go</a>
+
     </div>
 </header>
+<a href="https://github.com/ksgrdf/bookstore" class="git" >Project GitHub</a>
 </body>
 </html>

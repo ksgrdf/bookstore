@@ -57,8 +57,14 @@
 
             </h1>
             <ol class="breadcrumb">
-                <li><a href="welcome">Home</a>
-                </li>
+                <li><a href="welcome">Home</a></li>
+                <li>${amount/100}<small>грн</small></li>
+                <li><c:url var="addAction" value="/cart/order" />
+
+                    <form method="POST" action="${addAction}" >
+                        <input type="submit"
+                               value="Buy"/>
+                    </form></li>
 
             </ol>
         </div>
@@ -66,51 +72,31 @@
 </div>
 
 <c:if test="${!empty cart}">
-<div class="table">
-<table class="text-center">
-<tr>
-    <th width="120">Image</th>
-    <th width="100">Author</th>
-    <th width="100">Title</th>
-    <th width="60">Price</th>
-    <th width="60">Quality</th>
-    <th width="60">Delete</th>
-</tr>
 
-    <td>${amount}</td>
-    <td><c:url var="addAction" value="/cart/order" />
 
-        <form method="POST" action="${addAction}" >
-            <input type="submit"
-                   value="Add"/>
-        </form></td>
+
 
     <c:forEach items="${cart}" var="cart">
-    <tr>
-    <td>
-        <img class="img-responsive img-hover" src="http://localhost:8080/image/${cart.id}" width="100" height="70" alt="">
-    </td>
-        <td>
-        ${cart.bookAutor}
-        </td>
-        <td>
-        ${cart.bookTitle}
-        </td>
-        <td>
-        ${cart.price}
-        </td>
-        <td>
-        ${cart.price}
-        </td>
-        <td>
-        <td><a href="<c:url value='/delete/${cart.id}'/>">Delete</a></td>
-        </td>
-    </tr>
+        <div class="col-md-4 img-portfolio">
+            <a href="/bookdata/${cart.id}">
+                <img class="img-responsive img-hover" src="http://localhost:8080/image/${cart.id}"
+                     width="100" height="150" alt="">
+            </a>
+            <h3>
+                    ${cart.price/100}<small>грн</small><br>
+                        ${cart.bookTitle}<br>
+                        ${cart.bookAutor}
+
+
+            </h3>
+            <a href="<c:url value='/delete/${cart.id}'/>">Delete</a>
+        </div>
+
     </c:forEach>
 
 
 </c:if>
-</table>
-</div>
+
+
 </body>
 </html>

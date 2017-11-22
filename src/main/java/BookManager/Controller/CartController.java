@@ -2,7 +2,8 @@ package BookManager.Controller;
 
 
 import BookManager.Model.Book;
-import BookManager.Model.ShoppingCart;
+import BookManager.Model.User;
+import BookManager.Service.ShoppingCart;
 import BookManager.Service.BookService;
 import BookManager.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpSession;
+
 
 
 @Controller
@@ -92,5 +94,23 @@ public class CartController {
         return "redirect:/books";
     }
 
+    @RequestMapping(value="/orders",method=RequestMethod.GET)
+    public String cartList(Model model) //display all orders on page
+    {
+
+
+        model.addAttribute("listUsers", this.bookService.getUsersOrder());
+        model.addAttribute("listBooks", this.userService.getBooksOrders());
+
+        int ordersCount = 0;
+
+        for(Book b :this.userService.getBooksOrders())
+        {
+            ordersCount +=b.getPrice();
+        }
+
+        model.addAttribute("ordersCount", ordersCount);
+        return "orders";
+    }
 
 }

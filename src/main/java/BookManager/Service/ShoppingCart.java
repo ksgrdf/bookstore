@@ -1,4 +1,6 @@
-package BookManager.Model;
+package BookManager.Service;
+
+import BookManager.Model.Book;
 
 import java.util.ArrayList;
 import java.util.List;

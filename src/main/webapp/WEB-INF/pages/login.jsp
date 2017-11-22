@@ -33,6 +33,8 @@
         </div>
     <a href="/registration">Зарегистрироваться</a>
 </form>
+<p>Admin: "admin" "password"</p>
+<p>User: "manson" "123456"</p>
 </body>
 
 </html>

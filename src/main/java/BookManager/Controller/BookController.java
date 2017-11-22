@@ -79,7 +79,7 @@ public class BookController {
     {
         this.bookService.removeBook(id);
 
-        return "redirect:/admin";
+        return "admin";
     }
 
     @RequestMapping("edit/{id}")

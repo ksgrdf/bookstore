@@ -50,7 +50,7 @@ public class Book {
     @JoinTable(name = "books_users",
             joinColumns = { @JoinColumn(name = "book_id") },
             inverseJoinColumns = { @JoinColumn(name = "user_id") })
-    private Set<User> orders = new HashSet<User>();
+    private Set<User> usersOrder = new HashSet<User>();
 
     public void setBookImg(Blob bookImg) {
         this.bookImg = bookImg;
@@ -97,19 +97,21 @@ public class Book {
     }
 
 
-    public Set<User> getOrders() {
-        return orders;
+    public Set<User> getUsersOrder() {
+
+        Hibernate.initialize(usersOrder);
+        return usersOrder;
     }
 
-    public void setOrders(Set<User> orders) {
-        this.orders = orders;
+    public void setUsersOrder(Set<User> UserOrders) {
+        this.usersOrder = UserOrders;
     }
 
 
     public void addUser(User user)
     {
-        Hibernate.initialize(orders);
-       orders.add(user);
+        Hibernate.initialize(usersOrder);
+        usersOrder.add(user);
     }
 
     @Override

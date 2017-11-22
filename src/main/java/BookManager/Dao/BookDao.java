@@ -19,6 +19,8 @@ public interface BookDao {
 
     void addUser(User user, Book book);
 
+    List<User> getUsersOrder();
+
 
 
 

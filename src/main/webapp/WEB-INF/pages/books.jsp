@@ -86,7 +86,7 @@
                      width="100" height="150" alt="">
             </a>
             <h3>
-                ${book.price/100}<br>
+                ${book.price/100}<small>грн</small>
                 <a href="/bookdata/${book.id}">
                         ${book.bookTitle}<br>
                         ${book.bookAutor}

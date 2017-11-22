@@ -54,13 +54,10 @@
 <!-- Page Heading/Breadcrumbs -->
   <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Three Column Portfolio
-            <small>Subheading</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="/welcome">Home</a>
             </li>
-            <li class="active">Three Column Portfolio</li>
         </ol>
     </div>
   </div>
@@ -69,33 +66,37 @@
     <br/>
  <!-- /.row -->
 
-    <div class="row">
-        <div class="col-md-8">
-            <img class="img-responsive" src="http://localhost:8080/image/${book.id}" width="150" height="200" alt="">
+
+        <div class="portfolio-data">
+            <img class="img-responsive" src="http://localhost:8080/image/${book.id}" width="250" height="200" alt="">
+            <a href="/cart/${book.id}">
+                <img src="/resources/img/add_shopping_cart.png">
+            </a>
         </div>
 
-          <div class="col-md-4">
+          <div class="col-md-b">
               <h3>${book.bookTitle}</h3>
               <h3>${book.bookAutor}</h3><br>
-              <p>${book.price/100}${book.price%100}</p>
+              <p>${book.price/100}<small>грн</small></p>
               <p>${book.bookInfo}</p>
           </div>
-       </div>
+
 
  </div>
-    <!-- Footer -->
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p>WebSite for practice</p>
-            </div>
-        </div>
-    </footer>
-    <!-- jQuery -->
-    <script src="/resources/js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/resources/js/bootstrap.min.js"></script>
 </div>
+<!-- Footer -->
+<footer>
+    <div class="row">
+        <div class="col-lg-12">
+            <p>WebSite for practice</p>
+        </div>
+    </div>
+</footer>
+<!-- jQuery -->
+<script src="/resources/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/resources/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -82,4 +82,13 @@ public class BookDaoImpl implements BookDao
 
     }
 
+    public List<User> getUsersOrder()
+    {
+        Session session = sessionFactory.openSession();
+        List<User> listOrders = session.createQuery
+                ("select distinct u from BookManager.Model.User u inner join fetch u.booksOrders as b").list();
+        return listOrders;
+
+    }
+
 }

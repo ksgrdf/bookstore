@@ -50,4 +50,9 @@ public class BookServiceImpl implements BookService {
         bookDao.addUser(user,book);
     }
 
+   public List<User> getUsersOrder()
+   {
+       return bookDao.getUsersOrder();
+   }
+
 }

@@ -18,6 +18,7 @@ public interface UserService {
 
     User searchUser(String username);
 
-
     void addBook(Book book);
+
+    List<Book> getBooksOrders();
 }

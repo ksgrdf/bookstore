@@ -39,21 +39,13 @@ public class LoginController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model){
 
-        userValidation.validate(userForm, bindingResult);
+        userValidation.validate(userForm, bindingResult); //validation with Spring Validator
 
         if (bindingResult.hasErrors()) {
             return "registration";
         }
 
         userService.addUser(userForm);
-
-        //User userInfo = (User) SecurityContextHolder.getContext()
-          //      .getAuthentication().getPrincipal();
-
-
-
-//        System.out.println(userInfo.toString());
-
 
         return "redirect:/index";
     }

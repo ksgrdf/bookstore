@@ -9,10 +9,11 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <http realm="BookManager"  auto-config="true" use-expressions="true"  >
-        <intercept-url pattern="/add" access="ROLE_ADMIN" />
-        <intercept-url pattern="/remove" access="ROLE_ADMIN" />
-        <intercept-url pattern="/edit" access="ROLE_ADMIN" />
-        <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
+
+        <intercept-url pattern="/orders" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/edit/*" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/remove/*" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/admin*" access="hasRole('ROLE_ADMIN')" />
         <intercept-url pattern="/login*" access="permitAll"/>
 
         <form-login login-page= "/login"
@@ -21,7 +22,7 @@
                              login-processing-url= "/login"
                              authentication-failure-url= "/login.jsp?error=true" />
 
-        <logout logout-url= "/j_spring_security_logout" logout-success-url= "/index"/>
+        <logout logout-url= "/j_spring_security_logout" logout-success-url= "/welcome"/>
 
         <anonymous username="guest" granted-authority="ROLE_ANONYMOUS" />
         <csrf disabled="true"/>
