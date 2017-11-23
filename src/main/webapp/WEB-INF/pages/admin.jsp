@@ -86,7 +86,7 @@
                 <td><a href="/bookdata/${book.id}" target="_blank">${book.bookTitle}</a></td>
                 <td>${book.bookAutor}</td>
                 <td>${book.price/100}</td>
-                <td><img src="http://localhost:8080/image/${book.id}" width="150" height="150"></td>
+                <td><img src="/image/${book.id}" width="150" height="150"></td>
                 <td>${book.bookInfo}</td>
                 <td><a href="<c:url value='/edit/${book.id}#add'/>">Edit</a></td>
                 <td><a href="<c:url value='/remove/${book.id}'/>">Delete</a></td>
