@@ -71,7 +71,7 @@ public class BookController {
         if(book.getId() == 0) this.bookService.addBook(book);
         else this.bookService.updateBook(book);
 
-        return "admin";
+        return book.getBookAutor()+" ===>  "+book.getBookTitle();
     }
 
     @RequestMapping("/remove/{id}")
