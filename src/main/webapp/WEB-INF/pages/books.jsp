@@ -82,7 +82,7 @@
 
         <div class="col-md-4 img-portfolio">
             <a href="/bookdata/${book.id}">
-                <img class="img-responsive img-hover" src="petbookstore.herokuapp.com/image/${book.id}"
+                <img class="img-responsive img-hover" src="/image/${book.id}"
                      width="100" height="150" alt="">
             </a>
             <h3>
