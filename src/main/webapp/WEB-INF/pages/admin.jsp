@@ -100,7 +100,7 @@
 
 <c:url var="addAction" value="/admin/add" />
 
-<form:form method="POST" action="${addAction}"  commandName="book" enctype="multipart/form-data">
+<form:form method="POST" action="${addAction}"  commandName="book" enctype="multipart/form-data" accept-charset="utf-8">
         <input type="file" class="file" name="file"/>
     <table class="table">
 
