@@ -79,7 +79,7 @@
     <c:forEach items="${cart}" var="cart">
         <div class="col-md-4 img-portfolio">
             <a href="/bookdata/${cart.id}">
-                <img class="img-responsive img-hover" src="petbookstore.herokuapp.com/image/${cart.id}"
+                <img class="img-responsive img-hover" src="/image/${cart.id}"
                      width="100" height="150" alt="">
             </a>
             <h3>
