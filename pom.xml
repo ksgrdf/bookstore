@@ -16,6 +16,7 @@
         <org.aspectj-version>1.7.4</org.aspectj-version>
         <org.slf4j-version>1.7.5</org.slf4j-version>
         <hibernate.version>4.3.5.Final</hibernate.version>
+        <encoding>UTF-8</encoding>
     </properties>
 
     <dependencies>
@@ -207,6 +208,7 @@
                     <includes>
                         <include>**/*Tests.java</include>
                     </includes>
+                         <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
             <plugin>
@@ -242,6 +244,7 @@
                                     <destFileName>webapp-runner.jar</destFileName>
                                 </artifactItem>
                             </artifactItems>
+                                 <encoding>UTF-8</encoding>
                         </configuration>
                     </execution>
                 </executions>
