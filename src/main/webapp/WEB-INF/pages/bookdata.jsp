@@ -68,7 +68,7 @@
 
 
         <div class="portfolio-data">
-            <img class="img-responsive" src="http://localhost:8080/image/${book.id}" width="250" height="200" alt="">
+            <img class="img-responsive" src="petbookstore.herokuapp.com/image/${book.id}" width="250" height="200" alt="">
             <a href="/cart/${book.id}">
                 <img src="/resources/img/add_shopping_cart.png">
             </a>
