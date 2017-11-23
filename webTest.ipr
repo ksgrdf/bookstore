@@ -75,6 +75,22 @@
       <module name="webTest" target="1.6" />
     </bytecodeTargetLevel>
   </component>
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="heroku_9e9fd4d6068d2d2@eu-cdbr-west-01.cleardb.com" uuid="a4ec0158-6e6b-4220-8b56-3be60ca7fde9">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://eu-cdbr-west-01.cleardb.com:3306/heroku_9e9fd4d6068d2d2</jdbc-url>
+      <driver-properties>
+        <property name="autoReconnect" value="true" />
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="yearIsDateType" value="false" />
+      </driver-properties>
+    </data-source>
+  </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
@@ -231,6 +247,18 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/resources/styles.css" value="file://$PROJECT_DIR$/src/main/webapp" />
       </map>
     </option>
+  </component>
+  <component name="dataSourceStorageLocal">
+    <data-source name="heroku_9e9fd4d6068d2d2@eu-cdbr-west-01.cleardb.com" uuid="a4ec0158-6e6b-4220-8b56-3be60ca7fde9">
+      <database-info product="MySQL" version="5.5.56-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.44 ( Revision: b3cda4f864902ffdde495b9df93937c3e20009be )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>bef440f417a8f8</user-name>
+      <introspection-schemas>*:heroku_9e9fd4d6068d2d2</introspection-schemas>
+    </data-source>
   </component>
   <component name="libraryTable">
     <library name="Maven: antlr:antlr:2.7.7">
