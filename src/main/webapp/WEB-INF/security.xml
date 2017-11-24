@@ -20,7 +20,7 @@
                              username-parameter= "username"
                              password-parameter= "password"
                              login-processing-url= "/login"
-                             authentication-failure-url= "/login.jsp?error=true" />
+                             authentication-failure-url= "/login?error=true" />
 
         <logout logout-url= "/j_spring_security_logout" logout-success-url= "/welcome"/>
 
