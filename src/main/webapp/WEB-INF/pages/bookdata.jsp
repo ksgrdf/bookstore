@@ -5,8 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Books Page</title>
-    <title>BookData</title>
+   <title>KSG</title>
 
     <spring:url value="/resources/css/bootstrap.css" var="bootstrap"/>
     <spring:url value="/resources/css/modern-business.css" var="startertemplate"/>
