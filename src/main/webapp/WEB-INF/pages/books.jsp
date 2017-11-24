@@ -5,8 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <html>
 <head>
-    <title>Books Page</title>
-    <title>BookData</title>
+    <title>KSG</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
