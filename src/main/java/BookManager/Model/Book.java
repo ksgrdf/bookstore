@@ -16,6 +16,8 @@ import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
 
+//TODO try to use Lombok instead of get() set()
+//Todo before use it read about it
 @Entity
 @Table(name = "books")
 public class Book {
