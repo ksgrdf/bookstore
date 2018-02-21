@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
 
+//todo add test
 //TODO try to use Lombok instead of get() set()
 //Todo before use it read about it
 @Entity
