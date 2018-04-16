@@ -71,7 +71,7 @@ public class BookController {
         if(book.getId() == 0) this.bookService.addBook(book);
         else this.bookService.updateBook(book);
 
-        return "admin";
+        return "redirect:/admin";
     }
 
     @RequestMapping("/remove/{id}")
@@ -79,7 +79,7 @@ public class BookController {
     {
         this.bookService.removeBook(id);
 
-        return "admin";
+        return "redirect:/admin";
     }
 
     @RequestMapping("edit/{id}")
@@ -88,7 +88,7 @@ public class BookController {
         model.addAttribute("book", this.bookService.getBookById(id));
         model.addAttribute("listBooks", this.bookService.listBooks());
 
-        return "admin";
+        return "redirect:/admin";
     }
 
     @RequestMapping("bookdata/{id}")
