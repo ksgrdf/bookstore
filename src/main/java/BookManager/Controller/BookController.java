@@ -88,7 +88,7 @@ public class BookController {
         model.addAttribute("book", this.bookService.getBookById(id));
         model.addAttribute("listBooks", this.bookService.listBooks());
 
-        return "redirect:/admin";
+        return "admin";
     }
 
     @RequestMapping("bookdata/{id}")
